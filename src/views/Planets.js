@@ -1,17 +1,21 @@
-import React, { useEffect, useContext } from "react";
-import { Context } from "../store/appContext";
-
+import React, { useContext, useEffect } from 'react';
+import { useParams } from 'react-router';
+import { Context } from '../store/appContext';
 
 const Profile = () => {
-
-    const { store, actions } = useContext(Context)
+  
+    
+    let {id , type} = useParams();
+    const { store, actions } = useContext(Context);
 
     useEffect(() => {
-        actions.obtenerPlanets();
-      },[]); // eslint-disable-line react-hooks/exhaustive-deps
-
-    console.log(store.Planets[0].name)
-
-    return <h1>Profile {store.Planets[0].name} </h1>
+        actions.getObj(id, type);
+    }, [])
+    console.log(store.obj);
+    return (
+        <div>
+            <h1>Profile of  </h1>
+        </div>
+    )
 }
-export default Profile 
+export default Profile;
