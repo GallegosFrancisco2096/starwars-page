@@ -13,26 +13,22 @@ const Profile = () => {
     number = number + 1
     Personajes.push(number)
   }
-  while (number < 89);
+  while (number < 3);
 
   console.log(Personajes)
-
-  let id = 1
     useEffect(() => {
-      actions.obtenerPersonajes(id)
+      for(const Personaje of Personajes) {
+        let id = Personaje
+        console.log(id)
+        actions.getPersonajes(id)
+      }
     }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
-
-  for (const Personaje of Personajes) {
-    
-
-    console.log(store.Personaje)
+    console.log(store.personajes)
 
 
-    return <h1>Profile {store.Personaje.name} </h1>
 
 
+    return (<h1>Profile  </h1>)
   }
-
-}
 export default Profile 

@@ -4,12 +4,12 @@ const getState = ({ setStore, getStore, getActions }) => {
             personajes: [],
             planetas: [],
             vehiculos: [],
-            obj: null,
+            obj: {},
             fav: []
         },
         actions: {
-            getPersonajes: () => {
-                fetch("https://www.swapi.tech/api/people/")
+            getPersonajes: (id) => {
+                fetch(`https://www.swapi.tech/api/people/${id}`)
                     .then(res => res.json())
                     .then(data => setStore({ personajes: data.results }));
             },
