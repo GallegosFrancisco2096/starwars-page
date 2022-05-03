@@ -15,7 +15,7 @@ const App = () => {
     <Navbar />
       <Routes >
         < Route path="/" element = {<Home />} />
-        < Route path="/profile" element = {<Profile />} />
+        <Route path="/profile" element={<Profile/>} />
         < Route path="/vehicles" element = {<Vehicles />} />
         <Route path="/planets/:id" element={<Planets/>} />
         < Route path="*" element = {<h1>Not found</h1>} />

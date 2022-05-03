@@ -1,17 +1,19 @@
-import React, { useEffect, useContext } from "react";
-import { Context } from "../store/appContext";
-
+import React, { useContext, useState, useEffect } from 'react';
+import { useParams } from 'react-router';
+import { Context } from '../store/appContext';
 
 const Profile = () => {
-
-    const { store, actions } = useContext(Context)
-
+    const params = useParams();
+    console.log(params)
+    const { store, actions } = useContext(Context);
     useEffect(() => {
-        actions.obtenerVehicles();
-      },[]); // eslint-disable-line react-hooks/exhaustive-deps
-
-    console.log(store.Vehicles[0].name)
-
-    return <h1>Profile {store.Vehicles[0].name} </h1>
+        actions.getObj(params.id, params.type);
+    }, []) // eslint-disable-line react-hooks/exhaustive-deps
+    console.log(store.obj);
+    return (
+        <div>
+            <h1>Profile of {store.obj ? (params.type==="people" ? store.obj.result.properties.name : params.type==="planets" ? store.obj.result.properties.name : params.type==="vehicles" && store.obj.result.properties.name):"loading..."} of id {params.id} </h1>
+        </div>
+    )
 }
-export default Profile 
+export default Profile;

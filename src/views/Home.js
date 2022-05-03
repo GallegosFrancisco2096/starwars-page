@@ -37,7 +37,11 @@ const Home = () => {
                         <h5 className="card-title"> {planeta.name} </h5>
                         <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                         <div className='d-flex justify-content-between'>
+<<<<<<< HEAD
                             <Link to={"/planets/" + planeta.uid} className="btn btn-primary">Go somewhere</Link>
+=======
+                            <Link to={"/profile/planets/" + planeta.uid} className="btn btn-primary">Go somewhere</Link>
+>>>>>>> f95ecf9307a69d41bada600f3063983387e4144a
                             <button className="btn btn-warning"> fav </button>
                         </div>
                     </div>
