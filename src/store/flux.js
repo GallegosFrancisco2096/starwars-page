@@ -4,13 +4,12 @@ const getState = ({ setStore, getStore, getActions }) => {
             personajes: [],
             planetas: [],
             vehiculos: [],
-            obj: {},
-            fav: [],
-            HomeWorld: {}
+            obj: [],
+            Favorites: []
         },
         actions: {
             getPeople: () => {
-                fetch(`https://www.swapi.tech/api/people/`)
+                fetch("https://www.swapi.tech/api/people/")
                     .then(res => res.json())
                     .then(data => setStore({ personajes: data.results }));
             },
@@ -29,22 +28,17 @@ const getState = ({ setStore, getStore, getActions }) => {
                     .then(response => response.json())
                     .then(data => setStore({ obj: data.result.properties }));
             },
-            getHomeWorld: (url) => {
-                fetch(url)
-                    .then(response => response.json())
-                    .then(data => setStore({ HomeWorld: data.result.properties }));
-            },
-            getFav: (favo) => {
+            getFavoritesList: (Add) => {
                 const store = getStore();
-                if (store.fav.includes(favo)){
-                    return console.log("nop")
+                if (store.Favorites.includes(Add)){
+                    return console.log("Previamente incluido")
                 }
-                setStore({ fav: [...store.fav, favo] })
+                setStore({ Favorites: [...store.Favorites, Add] })
             },
             deleteFav: (index)=>{
                 const store = getStore();
-                store.fav.splice(index,1);
-                setStore({fav : store.fav})
+                store.Favorites.splice(index, 1);
+                setStore({Favorites : store.Favorites})
             }
 
         }
