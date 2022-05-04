@@ -4,21 +4,13 @@ const getState = ({ setStore, getStore, getActions }) => {
             personajes: [],
             planetas: [],
             vehiculos: [],
-<<<<<<< HEAD
-            obj: [],
-            fav: []
+            obj: {},
+            fav: [],
+            HomeWorld: {}
         },
         actions: {
             getPeople: () => {
-                fetch("https://www.swapi.tech/api/people/")
-=======
-            obj: {},
-            fav: []
-        },
-        actions: {
-            getPersonajes: (id) => {
-                fetch(`https://www.swapi.tech/api/people/${id}`)
->>>>>>> f95ecf9307a69d41bada600f3063983387e4144a
+                fetch(`https://www.swapi.tech/api/people/`)
                     .then(res => res.json())
                     .then(data => setStore({ personajes: data.results }));
             },
@@ -35,7 +27,12 @@ const getState = ({ setStore, getStore, getActions }) => {
             getObj: (id, type) => {
                 fetch("https://www.swapi.tech/api/" + type + "/" + id)
                     .then(response => response.json())
-                    .then(data => setStore({ obj: data }));
+                    .then(data => setStore({ obj: data.result.properties }));
+            },
+            getHomeWorld: (url) => {
+                fetch(url)
+                    .then(response => response.json())
+                    .then(data => setStore({ HomeWorld: data.result.properties }));
             },
             getFav: (favo) => {
                 const store = getStore();
