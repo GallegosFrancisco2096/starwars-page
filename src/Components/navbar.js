@@ -36,9 +36,9 @@ const NavbarLanding = () => {
                         <DropdownMenu>
                             {store.Favorites.map((people, index) =>
                                 <div className='row ml-2 mr-2'>
-                                    <DropdownItem>
+                                    <DropdownItem className='d-flex justify-content-center'>
                                         {people}
-                                        <button className="btn btn-floating"
+                                        <button className="btn btn-floating d-flex justify-content-center"
                                             onClick={() => actions.deleteFav(index)}>
                                             <i className="material-icons">x</i>
                                         </button>

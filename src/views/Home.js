@@ -8,15 +8,14 @@ const Home = () => {
     const [type, setType] = useState("");
     useEffect(() => {
         actions.getPeople();
-        actions.getPlanetas();
-        actions.getVehiculos();
+        actions.getPlanets();
+        actions.getVehicles();
     }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
     console.log(store.Favorites)
 
     return (
-
-            <div className='container overflow-hidden row'>
+            <div className='container-fluid overflow-hidden row'>
                 <h1>Personaje</h1>
                 {store.personajes.map(people =>
                     <div className='ml-2 mr-2 col-4 my-4'>

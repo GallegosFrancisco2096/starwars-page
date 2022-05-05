@@ -14,60 +14,64 @@ const Profile = () => {
 
     }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
- 
-    if (params.type === "people") { 
+    if (params.type === "people") {
         return (
-            <div className=' d-inline-block m-3'>
-                <h1>Details of {store.obj.name}</h1>
-                <div>
-                    <H2card height={store.obj.height} mass={store.obj.mass} hair_color={store.obj.hair_color} skin_color={store.obj.skin_color}
-                        eye_color={store.obj.eye_color}
-                        gender={store.obj.gender}
-                        type={params.type}
-                    />
+            <div className='container-fluid d-flex justify-content-center'>
+                <div className=' d-inline-block m-3' >
+                    <h1>Details of {store.obj.name}</h1>
+                    <div>
+                        <H2card height={store.obj.height} mass={store.obj.mass} hair_color={store.obj.hair_color} skin_color={store.obj.skin_color}
+                            eye_color={store.obj.eye_color}
+                            gender={store.obj.gender}
+                            type={params.type}
+                        />
+                    </div>
                 </div>
-    
             </div>
         )
     }
-    if (params.type === "vehicles") { 
+    if (params.type === "vehicles") {
         return (
-            <div className='justify-content-center'>
-                <h1>Details of {store.obj.name}</h1>
-    
-                <div>
-                    <H2card model={store.obj.model} manufacturer={store.obj.manufacturer} cost_in_credits={store.obj.cost_in_credits} length={store.obj.length}
-                        passengers={store.obj.passengers}
-                        max_atmosphering_speed={store.obj.max_atmosphering_speed}
-                        cargo_capacity={store.obj.cargo_capacity}
-                        type={params.type}
-                    />
-                </div>
-    
-            </div>
-        )
+            <div className='container-fluid d-flex justify-content-center'>
+                <div className=' d-inline-block m-3'>
+                    <h1>Details of {store.obj.name}</h1>
 
-    }
-    if (params.type === "planets") { 
-        return (
-            <div className='justify-content-center'>
-                <h1>Details of {store.obj.name}</h1>
-    
-                <div>
-                    <H2card diameter={store.obj.diameter} rotation_period={store.obj.rotation_period} orbital_period={store.obj.orbital_period} gravity={store.obj.gravity}
-                        population={store.obj.population}
-                        climate={store.obj.climate}
-                        terrain={store.obj.terrain}
-                        type={params.type}
-                        surface_water= {store.obj.surface_water}
-                    />
+                    <div>
+                        <H2card model={store.obj.model} manufacturer={store.obj.manufacturer} cost_in_credits={store.obj.cost_in_credits} length={store.obj.length}
+                            passengers={store.obj.passengers}
+                            max_atmosphering_speed={store.obj.max_atmosphering_speed}
+                            cargo_capacity={store.obj.cargo_capacity}
+                            type={params.type}
+                        />
+                    </div>
+
                 </div>
-    
             </div>
         )
 
     }
+    if (params.type === "planets") {
+        return (
+            <div className='container-fluid d-flex justify-content-center'>
+                <div className=' d-inline-block m-3' >
+                    <h1>Details of {store.obj.name}</h1>
 
-    
+                    <div>
+                        <H2card diameter={store.obj.diameter} rotation_period={store.obj.rotation_period} orbital_period={store.obj.orbital_period} gravity={store.obj.gravity}
+                            population={store.obj.population}
+                            climate={store.obj.climate}
+                            terrain={store.obj.terrain}
+                            type={params.type}
+                            surface_water={store.obj.surface_water}
+                        />
+                    </div>
+                </div>
+
+            </div>
+        )
+
+    }
+
+
 }
 export default Profile;
