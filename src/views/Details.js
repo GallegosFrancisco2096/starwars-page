@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { useParams } from 'react-router';
 import { Context } from '../store/appContext';
 import H2card from '../Components/CardN2';
@@ -15,19 +15,10 @@ const Profile = () => {
     }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
  
-
-
-
-
-
-
-
-
-    if (params.type == "people") { 
+    if (params.type === "people") { 
         return (
-            <div>
+            <div className=' d-inline-block m-3'>
                 <h1>Details of {store.obj.name}</h1>
-    
                 <div>
                     <H2card height={store.obj.height} mass={store.obj.mass} hair_color={store.obj.hair_color} skin_color={store.obj.skin_color}
                         eye_color={store.obj.eye_color}
@@ -38,11 +29,10 @@ const Profile = () => {
     
             </div>
         )
-
     }
-    if (params.type == "vehicles") { 
+    if (params.type === "vehicles") { 
         return (
-            <div>
+            <div className='justify-content-center'>
                 <h1>Details of {store.obj.name}</h1>
     
                 <div>
@@ -58,9 +48,9 @@ const Profile = () => {
         )
 
     }
-    if (params.type == "planets") { 
+    if (params.type === "planets") { 
         return (
-            <div>
+            <div className='justify-content-center'>
                 <h1>Details of {store.obj.name}</h1>
     
                 <div>

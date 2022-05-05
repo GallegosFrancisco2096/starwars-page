@@ -10,27 +10,23 @@ const Home = () => {
         actions.getPeople();
         actions.getPlanetas();
         actions.getVehiculos();
-
-    }, [])
+    }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
     console.log(store.Favorites)
 
     return (
 
-        <div className='d-flex row container-fluid'>
-
-            <div className='container overflow-hidden col-8'>
+            <div className='container overflow-hidden row'>
                 <h1>Personaje</h1>
                 {store.personajes.map(people =>
-                    <div className='row ml-2 mr-2'>
+                    <div className='ml-2 mr-2 col-4 my-4'>
 
                         <Hcard name={people.name} type={"/people/"} uid={people.uid} />
-
                     </div>
                 )}
                 <h1>Planetas</h1>
                 {store.planetas.map(planet =>
-                    <div className='row ml-2 mr-2'>
+                    <div className='ml-2 mr-2 col-4 my-4'>
 
                         <Hcard name={planet.name} type={"/planets/"} uid={planet.uid} />
 
@@ -39,7 +35,7 @@ const Home = () => {
                 )}
                 <h1>Vehiculos</h1>
                 {store.vehiculos.map(vehicles =>
-                    <div className='row ml-2 mr-2'>
+                    <div className='ml-2 mr-2 col-4 my-4'>
 
                         <Hcard name={vehicles.name} type={"/vehicles/"} uid={vehicles.uid} />
 
@@ -47,28 +43,8 @@ const Home = () => {
 
                 )}
             </div>
-            <div className='col-3'>
-                <h1>Favorites</h1>
-                {store.Favorites.map((people, index) =>
-                    <div className='row ml-2 mr-2'>
-
-
-                        <div>
-                            <li >
-
-                                {people}
-                                <button className="btn btn-floating"
-                                    onClick={() => actions.deleteFav(index)}>
-                                    <i className="material-icons">x</i>
-                                </button>
-                            </li>
-                        </div>
-
-                    </div>
-                )
-                }
-            </div>
-        </div>);
+            
+       );
 };
 export default Home;
 

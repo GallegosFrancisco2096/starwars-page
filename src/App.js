@@ -1,16 +1,17 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./views/Home";
-
+import Navbar from "./Components/navbar";
 import Details from "./views/Details";
 import injectContext from "./store/appContext";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 
+
 const App = () => {
   return <>
     <BrowserRouter>
-
+      <Navbar />
       <Routes >
         < Route path="/" element={<Home />} />
         <Route path="/:type/:id" element={<Details />} />

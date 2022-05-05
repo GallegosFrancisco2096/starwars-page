@@ -14,7 +14,7 @@ const Hcard = (props) => {
 
 
     return (
-        < div className="card d-inline-block m-3" style={{ width: "25rem" }}>
+        < div className="card d-inline-block mr-5 ml-5 col-4" style={{ width: "25rem" }}>
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Star_Wars_Logo.svg/250px-Star_Wars_Logo.svg.png" className="card-img-top" alt="..." />
             <div className="card-body">
                 <h5 className="card-title">{props.name}</h5>
